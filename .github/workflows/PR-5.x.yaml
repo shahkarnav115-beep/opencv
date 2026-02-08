@@ -10,24 +10,36 @@ jobs:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-Linux.yaml@main
     with:
       workflow_branch: 'main'
+      runner_tag: 'ubuntu-latest'
 
   Windows:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-Windows.yaml@main
     with:
       workflow_branch: main
+      runner_tag: 'windows-latest'
 
   Ubuntu2404-ARM64:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-ARM64.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
   Ubuntu2404-ARM64-Debug:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-ARM64-Debug.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
+      with:
+        runner_tag: 'ubuntu-latest'
 
   Ubuntu2004-x64-OpenVINO:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-U20-OpenVINO.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
   Ubuntu2004-x64-CUDA:
     if: "${{ contains(github.event.pull_request.labels.*.name, 'category: dnn') }} || ${{ contains(github.event.pull_request.labels.*.name, 'category: dnn (onnx)') }}"
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-U20-Cuda.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
 # Vulkan configuration disabled as Vulkan backend for DNN does not support int/int64 for now
 # Details: https://github.com/opencv/opencv/issues/25110
@@ -36,24 +48,38 @@ jobs:
 
   macOS-ARM64:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-macOS-ARM64.yaml@main
+    with:
+      runner_tag: 'macos-latest
 
 #  macOS-ARM64-Vulkan:
 #    uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-macOS-ARM64-Vulkan.yaml@main
 
   macOS-x64:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-macOS-x86_64.yaml@main
+    with:
+      runner_tag: 'macos-13'
 
   iOS:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-iOS.yaml@main
+    with:
+      runner_tag: 'macos-latest'
 
   Android:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-Android.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
   TIM-VX:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-timvx-backend-tests-4.x.yml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
   docs:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-docs.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
 
   Linux-RISC-V-Clang:
     uses: opencv/ci-gha-workflow/.github/workflows/OCV-PR-5.x-RISCV.yaml@main
+    with:
+      runner_tag: 'ubuntu-latest'
